@@ -2,6 +2,7 @@ import React from "react";
 
 const Cart = ({ cart, removeFromCart, updateQuantity }) => {
   const totalValue = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  
   const discount = totalValue * 0.1; // Calculate 10% discount
   const discountedTotal = totalValue - discount; // Subtract discount from total value
 
@@ -32,9 +33,9 @@ const Cart = ({ cart, removeFromCart, updateQuantity }) => {
             </div>
             <button
               onClick={() => removeFromCart(product.id)}
-              className="text-red-500 ml-4"
+              className="text-white ml-4 bg-red-700  py-2 px-4 rounded"
             >
-              Remove
+              Remove from Cart
             </button>
           </div>
         ))

@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
   const [cart, setCart] = useState([]);
+  const cartCount = cart.reduce((acc, item) => acc +item.quantity, 0);
 
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -38,7 +39,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Navbar cartCount={cart.length} />
+      <Navbar cartCount={cartCount} />
       <Routes>
         <Route
           path="/"
