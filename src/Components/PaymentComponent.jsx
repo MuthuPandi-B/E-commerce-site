@@ -20,7 +20,7 @@ const PaymentComponent = ({amount}) => {
       alert('Razorpay SDK failed to load. Are you online?');
       return;
     }
-    console.log(import.meta.env.VITE_RAZORPAY_KEY);
+
 
     const options = {
        
@@ -32,6 +32,7 @@ const PaymentComponent = ({amount}) => {
       image: Logo, // Replace with your logo URL
       handler: function (response) {
         alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+        window.location.href = '/';
       },
       prefill: {
         name: 'John Doe',
@@ -52,8 +53,8 @@ const PaymentComponent = ({amount}) => {
 
   return (
     <div>
-      <h1>Payment Page</h1>
-      <button onClick={handlePayment}>Pay Now</button>
+    
+      <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded' onClick={handlePayment}>Pay Now</button >
     </div>
   );
 };
