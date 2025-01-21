@@ -29,7 +29,7 @@ const Home = ({ addToCart, removeFromCart, cart }) => {
           <h2 className="text-xl text-gray-700 font-semibold mb-2">
             {product.title}
           </h2>
-          <h2 className="font-bold mb-2">${product.price}</h2>
+          <h2 className="font-bold mb-2">₹{product.price}</h2>
           <ProductDescription description={product.description} />
           <button
             onClick={() => handleCartToggle(product)}
