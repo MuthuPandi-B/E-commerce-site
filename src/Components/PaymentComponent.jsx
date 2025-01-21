@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../Assets/logo.png';
 
 const PaymentComponent = ({amount}) => {
   const loadRazorpay = (script) => {
@@ -19,15 +20,16 @@ const PaymentComponent = ({amount}) => {
       alert('Razorpay SDK failed to load. Are you online?');
       return;
     }
+    console.log(import.meta.env.VITE_RAZORPAY_KEY);
 
     const options = {
        
-      key: secret, // Replace with your Razorpay key ID
+      key: import.meta.env.VITE_RAZORPAY_KEY, // Replace with your Razorpay key ID
       amount: amount, // Amount in paise
       currency: 'INR',
       name: 'One Click Shopping',
       description: 'Test Transaction',
-      image: '../Assets/logo.png', // Replace with your logo URL
+      image: Logo, // Replace with your logo URL
       handler: function (response) {
         alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
       },
